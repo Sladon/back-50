@@ -19,9 +19,11 @@ source .venv/bin/activate
 pip3 install -r requirements.txt
 ```
 
-### Starting Server
+### Migration and Starting Server
 ```
 cd qcomparator
+python3 manage.py makemigrations
+python3 manage.py migrate
 python3 manage.py runserver
 ```
 > To start the server make sure that you use *source .venv/bin/activate*
