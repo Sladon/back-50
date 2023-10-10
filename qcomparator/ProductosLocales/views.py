@@ -7,7 +7,7 @@ def lista_productos(request):
     productos = Producto.objects.all()
     
     # Crear una lista de diccionarios con los datos de los productos
-    productos_data = [{"nombre": producto.nombre, "descripcion": producto.descripcion, "precio": producto.precio} for producto in productos]
+    productos_data = [{"nombre": producto.nombre, "descripcion": producto.descripcion, "precio": producto.precio, "local": producto.local.nombre} for producto in productos]
 
     # Devolver los datos en formato JSON
     return JsonResponse({"productos": productos_data}, safe=False)
