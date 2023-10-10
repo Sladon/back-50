@@ -23,7 +23,8 @@ def fill_database_with_fake_data(num_locales=10, num_productos_por_local=5):
     for _ in range(num_locales):
         nombre_local = fake.company()
         ubicacion_local = fake.address()
-        local = Local(nombre=nombre_local, ubicacion=ubicacion_local)
+        descripcion_local = fake.text()
+        local = Local(nombre=nombre_local, ubicacion=ubicacion_local, descripcion=descripcion_local)
         local.save()
 
         # Rellena la tabla Producto para cada Local
