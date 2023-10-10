@@ -1,6 +1,13 @@
 from django.shortcuts import render
 from django.http import JsonResponse
 from .models import Producto
+from rest_framework import generics
+from .serializers import ProductoSerializer
+
+class ProductoListAPIView(generics.ListAPIView):
+    queryset = Producto.objects.all()
+    serializer_class = ProductoSerializer
+
 
 def lista_productos(request):
     # Obtener todos los productos (por ahora, productos falsos)
