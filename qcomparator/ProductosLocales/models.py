@@ -12,3 +12,6 @@ class Producto(models.Model):
     precio = models.DecimalField(max_digits=5, decimal_places=2)
     local = models.ForeignKey(Local, on_delete=models.CASCADE, null=True) # Establece la relación con el modelo Local
     
+    def nombre_local(self):
+        return self.local.nombre
+    
