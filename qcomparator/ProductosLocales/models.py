@@ -11,6 +11,7 @@ class Producto(models.Model):
     descripcion = models.TextField()
     precio = models.DecimalField(max_digits=5, decimal_places=2)
     local = models.ForeignKey(Local, on_delete=models.CASCADE, null=True) # Establece la relación con el modelo Local
+    imagen = models.ImageField(upload_to='media/', null=True)  # 'upload_to' especifica la carpeta donde se guardarán las imágenes
     
     def nombre_local(self):
         return self.local.nombre
