@@ -9,6 +9,10 @@ from rest_framework.views import APIView
 from rest_framework import status
 
 
+class EditarProducto(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Producto.objects.all()
+    serializer_class = ProductoSerializer
+
 class CrearProducto(APIView):
     def post(self, request, format=None):
         # Serializa los datos recibidos en la solicitud
