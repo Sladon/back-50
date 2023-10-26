@@ -7,6 +7,24 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework import status
+from django.conf import settings
+from django.http import HttpResponse
+from django.views import View
+import os
+
+class ImageView(View):
+    def get(self, request, image_path):
+        # Construir la ruta completa a la imagen
+        full_image_path = os.path.join(settings.MEDIA_ROOT, image_path)
+
+        # Verificar si la imagen existe
+        if os.path.exists(full_image_path):
+            # Abrir la imagen y devolver su contenido
+            with open(full_image_path, 'rb') as image_file:
+                return HttpResponse(image_file.read(), content_type="image/jpeg")
+        else:
+            # Si la imagen no existe, devolver una respuesta 404
+            return HttpResponse("La imagen no existe", status=404)
 
 
 class ReviewListByProductView(generics.ListAPIView):

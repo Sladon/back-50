@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import path, re_path
 from . import views
 
 urlpatterns = [
@@ -9,4 +9,5 @@ urlpatterns = [
     path('api/productos/crear/', views.CrearProducto.as_view(), name='crear-producto'),
     path('api/productos/<int:pk>/', views.EditarProducto.as_view(), name='producto-detail'),
     path('api/reviews/product/<int:product_id>/', views.ReviewListByProductView.as_view(), name='review-list-by-product'),
+    re_path(r'^api/images/(?P<image_path>.*)/$', views.ImageView.as_view(), name='image-view'),
 ]
