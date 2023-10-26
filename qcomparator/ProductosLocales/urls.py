@@ -6,4 +6,7 @@ urlpatterns = [
     path('productos/', views.lista_productos, name='lista_productos'),
     path('api/productos/', views.ProductoListAPIView.as_view(), name='producto-list'),
     path('api/locales/', views.LocalListAPIView.as_view(), name='local-list'),
+    path('api/productos/crear/', views.CrearProducto.as_view(), name='crear-producto'),
+    path('api/productos/<int:pk>/', views.EditarProducto.as_view(), name='producto-detail'),
+    path('api/reviews/product/<int:product_id>/', views.ReviewListByProductView.as_view(), name='review-list-by-product'),
 ]
