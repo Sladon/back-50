@@ -23,6 +23,7 @@ class Review(models.Model):
     producto = models.ForeignKey(Producto, on_delete=models.CASCADE)  # Vincula la revisión a un producto
     comentario = models.TextField()
     calificacion = models.PositiveIntegerField(default=0, validators=[MinValueValidator(0), MaxValueValidator(5)])
+    fecha_creacion = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return f"Review de {self.user.username} para {self.producto.nombre}"

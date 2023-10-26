@@ -69,19 +69,6 @@ def lista_productos(request):
     return JsonResponse({"productos": productos_data}, safe=False)
 
 
-# @api_view(['GET', 'POST'])
-# def lista_productos(request):
-#     if request.method == 'GET':
-#         # Obtener todos los productos
-#         productos = Producto.objects.all()
-#         serializer = ProductoSerializer(productos, many=True)
-#         return Response(serializer.data)
-
-#     elif request.method == 'POST':
-#         # Crear un nuevo producto
-#         serializer = ProductoSerializer(data=request.data)
-
-#         if serializer.is_valid():
-#             serializer.save()
-#             return Response(serializer.data, status=status.HTTP_201_CREATED)
-#         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+class CreateReview(generics.CreateAPIView):
+    queryset = Review.objects.all()
+    serializer_class = ReviewSerializer
