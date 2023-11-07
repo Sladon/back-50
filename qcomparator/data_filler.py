@@ -11,7 +11,7 @@ os.environ.setdefault("DJANGO_SETTINGS_MODULE", "qcomparator.settings")
 django.setup()
 
 # Ahora puedes importar tus modelos
-from ProductosLocales.models import Local, Producto, Review
+from ProductosLocales.models import Local, Producto, Review, Tag
 from django.contrib.auth.models import User  # Importa el modelo User
 
 def create_fake_users(num_users=10):
@@ -25,6 +25,9 @@ def create_fake_users(num_users=10):
 # Función para rellenar la base de datos con datos falsos
 def fill_database_with_fake_data(num_locales=10, num_productos_por_local=5, num_reviews_per_product=10):
     fake = Faker()
+
+    # Lista de etiquetas ficticias
+    fake_tags = ['Dulce', 'Salado', 'Picante', 'Vegetariano', 'Orgánico', 'Sin gluten']
 
     # Rellena la tabla Local
     for _ in range(num_locales):
@@ -41,6 +44,14 @@ def fill_database_with_fake_data(num_locales=10, num_productos_por_local=5, num_
             precio_producto = round(random.uniform(1, 100), 2)  # Precio aleatorio entre 1 y 100
             producto = Producto(nombre=nombre_producto, descripcion=descripcion_producto, precio=precio_producto, local=local)
             producto.save()
+
+            num_tags = random.randint(1, len(fake_tags))  # Número aleatorio de etiquetas a asignar
+            tags = fake.random_elements(elements=fake_tags, length=num_tags, unique=True)
+            for tag_name in tags:
+                tag, created = Tag.objects.get_or_create(nombre=tag_name)
+                producto.tags.add(tag)  # Agrega la etiqueta al producto
+
+            producto.save()  # Guarda el producto después de asociar las etiquetas
 
             # Rellena la tabla Review para cada Producto
             for _ in range(num_reviews_per_product):

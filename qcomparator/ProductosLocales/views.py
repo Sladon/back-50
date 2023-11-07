@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import JsonResponse
-from .models import Producto, Local,Review
+from .models import Producto, Local, Review, Tag
 from rest_framework import generics
 from .serializers import ProductoSerializer, LocalSerializer, ReviewSerializer
 from rest_framework.decorators import api_view
