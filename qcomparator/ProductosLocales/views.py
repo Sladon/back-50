@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from rest_framework.generics import RetrieveAPIView
 from django.http import JsonResponse
 from .models import Producto, Local, Review, Tag
 from rest_framework import generics
@@ -72,3 +73,13 @@ def lista_productos(request):
 class CreateReview(generics.CreateAPIView):
     queryset = Review.objects.all()
     serializer_class = ReviewSerializer
+
+
+class LocalDetailsView(RetrieveAPIView):
+    queryset = Local.objects.all()
+    serializer_class = LocalSerializer
+
+    def retrieve(self, request, *args, **kwargs):
+        instance = self.get_object()  # Obtiene la instancia del local
+        serializer = self.get_serializer(instance)
+        return Response(serializer.data)

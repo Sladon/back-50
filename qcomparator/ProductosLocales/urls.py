@@ -11,4 +11,5 @@ urlpatterns = [
     path('api/product/<int:product_id>/reviews/', views.ReviewListByProductView.as_view(), name='review-list-by-product'),
     re_path(r'^api/images/(?P<image_path>.*)/$', views.ImageView.as_view(), name='image-view'),
     path('api/reviews/create/', views.CreateReview.as_view(), name='create-review'),
+    path('api/locales/<int:pk>/', views.LocalDetailsView.as_view(), name='local-details'),
 ]
