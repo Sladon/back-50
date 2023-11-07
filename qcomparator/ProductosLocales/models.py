@@ -11,7 +11,7 @@ class Local(models.Model):
 class Producto(models.Model):
     nombre = models.CharField(max_length=100)
     descripcion = models.TextField()
-    precio = models.DecimalField(max_digits=5, decimal_places=2)
+    precio = models.DecimalField(max_digits=10, decimal_places=2)
     local = models.ForeignKey(Local, on_delete=models.CASCADE, null=True) # Establece la relación con el modelo Local
     imagen = models.ImageField(upload_to='media/', null=True, blank=True)  # 'upload_to' especifica la carpeta donde se guardarán las imágenes
     tags = models.ManyToManyField('Tag', related_name='productos', blank=True)

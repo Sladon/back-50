@@ -41,7 +41,7 @@ def fill_database_with_fake_data(num_locales=10, num_productos_por_local=5, num_
         for _ in range(num_productos_por_local):
             nombre_producto = fake.word()
             descripcion_producto = fake.text()
-            precio_producto = round(random.uniform(1, 100), 2)  # Precio aleatorio entre 1 y 100
+            precio_producto = round(random.uniform(200, 100000), 2)  # Precio aleatorio entre 1 y 100
             producto = Producto(nombre=nombre_producto, descripcion=descripcion_producto, precio=precio_producto, local=local)
             producto.save()
 
