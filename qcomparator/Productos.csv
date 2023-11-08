@@ -2,27 +2,27 @@ Papas Fritas Pequeñas,Porcion de papas fritas pequeñas.,3000,1,papas_fritas_pe
 Papas Fritas Grandes,Porcion de papas fritas grandes.,4200,1,papas_fritas_grandes_coffee_time,Salado; Acompañamiento
 Salchi Papas,Porcion de papas fritas con salchichas.,5000,1,salchipapas_coffee_time,Salado
 Papas Cheddar,Porcion de papas fritas con salsa de queso cheddar.,4500,1,papas_cheddar_coffee_time,Salado
-1X HOT DOG + Bebida o Jugo en lata,Un hot dog con una bebida o jugo en lata a eleccion.,1800,1,combo_hotdog_bebida_coffee_time,"Salado, Almuerzo, Promocion"
-2X HOT DOG + Bebida en botella,Dos hot dogs con una bebida en botella a eleccion.,3800,1,combo_2_hotdog_bebida_coffee_time,"Salado, Almuerzo, Promocion"
-1 Completo Italiano + Bebida en lata,Un completo con palta y tomate mas una bebida en lata a eleccion.,2840,1,completo_bebida_coffee_time,"Salado, Almuerzo, Promocion"
+1X HOT DOG + Bebida o Jugo en lata,Un hot dog con una bebida o jugo en lata a eleccion.,1800,1,combo_hotdog_bebida_coffee_time,Salado; Almuerzo; Promocion
+2X HOT DOG + Bebida en botella,Dos hot dogs con una bebida en botella a eleccion.,3800,1,combo_2_hotdog_bebida_coffee_time,Salado; Almuerzo; Promocion
+1 Completo Italiano + Bebida en lata,Un completo con palta y tomate mas una bebida en lata a eleccion.,2840,1,completo_bebida_coffee_time,Salado; Almuerzo; Promocion
 Cinnamon Roll,Rollos de masa dulces con canela y glaciado.,1500,1,cinnamon_roll_coffee_time,Dulce
 Muffin Variedad Sabores,Variedad de muffins de distintos sabores a eleccion,1700,1,muffin_coffee_time,Dulce
 Donut Variedad,Variedad de donuts de distintos sabores a eleccion.,1450,1,donut_coffee_time,Dulce
 Top de Chocolate,Alfajor delleno de manjar cubierto con chocolate.,1070,1,alfajor_coffee_time,Dulce
 Pan Chocolate,Pan dulce relleno de pasta de chocolate.,1200,1,pan_coffee_time,Dulce
-Plato Variedades + Lata o Agua o Nectar,Almuerzo a eleccion mas una bebida o jugo o agua.,5650,2,almuerzo_promo,"Salado, Almuerzo, Promocion"
-Gohan Variedades + Lata o Agua o Nectar,Gohan a eleccion mas una bebida o jugo o agua.,5700,2,gohan_promo,"Salado, Almuerzo, Promocion"
-Ensalada Variedades + Lata o Agua o Nectar,Ensalada a eleccion mas una bebida o jugo o agua.,5650,2,ensalada_promo,"Salado, Almuerzo, Promocion"
-Gohan Camaron Apanado,Gohan con camaron apanado mas palta y queso crema con salsa a eleccion.,5350,2,gohan_camaron,"Salado, Almuerzo, Promocion"
-Gohan Pollo Apanado,Gohan con pollo apanado mas palta y queso crema con salsa a eleccion.,5350,2,gohan_pollo,"Salado, Almuerzo, Promocion"
-Gohan Salmon,Gohan con salmon mas palta y queso crema con salsa a eleccion.,5350,2,gohan_salmon,"Salado, Almuerzo, Promocion"
-Gohan Pollo Teriyaki,Gohan con pollo teriyaki mas palta y queso crema con salsa a eleccion.,5350,2,gohan_teriyaki,"Salado, Almuerzo, Promocion"
-Gohan Champiñon,Gohan con champiñon mas palta y queso crema con salsa a eleccion.,5350,2,gohan_champiñon,"Salado, Almuerzo, Promocion"
-Gohan Mixto,Gohan mixto con camaron mas salmon mas palta y queso crema con salsa a eleccion.,5350,2,gohan_mixto,"Salado, Almuerzo, Promocion"
-Gohan Atun,Gohan con atun mas palta y queso crema con salsa a eleccion.,5350,2,gohan_atun,"Salado, Almuerzo, Promocion"
-Ensalada Cesar,Ensalada con lechuga y pollo mas salsa cesar.,5290,2,ensalada_cesar,"Salado, Almuerzo, Promocion"
-Ensalada Mediterranea,Ensalada con lechuga mas tomate y aceitunas.,5290,2,ensalada_mediterranea,"Salado, Almuerzo, Promocion"
-Ensalada Primavera,Ensalada con lechuga mas tomate mas cebolla morada y palta.,5290,2,ensalada_primavera,"Salado, Almuerzo, Promocion"
-Ensalada Huevo Pollo,Ensalada con lechuga mas huevo duro y pollo.,5290,2,ensalada_huevo_pollo,"Salado, Almuerzo, Promocion"
-Ensalada Porotos,Ensalada con porotos verdes y lechuga.,5290,2,ensalada_porotos,"Salado, Almuerzo, Promocion"
-Ensalada Falafel,Ensalada con lechuga y bolitas de falafels.,5290,2,ensalada_falafel,"Salado, Almuerzo, Promocion"
+Plato Variedades + Lata o Agua o Nectar,Almuerzo a eleccion mas una bebida o jugo o agua.,5650,2,almuerzo_promo,Salado; Almuerzo; Promocion
+Gohan Variedades + Lata o Agua o Nectar,Gohan a eleccion mas una bebida o jugo o agua.,5700,2,gohan_promo,Salado; Almuerzo; Promocion
+Ensalada Variedades + Lata o Agua o Nectar,Ensalada a eleccion mas una bebida o jugo o agua.,5650,2,ensalada_promo,Salado; Almuerzo; Promocion
+Gohan Camaron Apanado,Gohan con camaron apanado mas palta y queso crema con salsa a eleccion.,5350,2,gohan_camaron,Salado; Almuerzo; Promocion
+Gohan Pollo Apanado,Gohan con pollo apanado mas palta y queso crema con salsa a eleccion.,5350,2,gohan_pollo,Salado; Almuerzo; Promocion
+Gohan Salmon,Gohan con salmon mas palta y queso crema con salsa a eleccion.,5350,2,gohan_salmon,Salado; Almuerzo; Promocion
+Gohan Pollo Teriyaki,Gohan con pollo teriyaki mas palta y queso crema con salsa a eleccion.,5350,2,gohan_teriyaki,Salado; Almuerzo; Promocion
+Gohan Champiñon,Gohan con champiñon mas palta y queso crema con salsa a eleccion.,5350,2,gohan_champiñon,Salado; Almuerzo; Promocion
+Gohan Mixto,Gohan mixto con camaron mas salmon mas palta y queso crema con salsa a eleccion.,5350,2,gohan_mixto,Salado; Almuerzo; Promocion
+Gohan Atun,Gohan con atun mas palta y queso crema con salsa a eleccion.,5350,2,gohan_atun,Salado; Almuerzo; Promocion
+Ensalada Cesar,Ensalada con lechuga y pollo mas salsa cesar.,5290,2,ensalada_cesar,Salado; Almuerzo; Promocion
+Ensalada Mediterranea,Ensalada con lechuga mas tomate y aceitunas.,5290,2,ensalada_mediterranea,Salado; Almuerzo; Promocion
+Ensalada Primavera,Ensalada con lechuga mas tomate mas cebolla morada y palta.,5290,2,ensalada_primavera,Salado; Almuerzo; Promocion
+Ensalada Huevo Pollo,Ensalada con lechuga mas huevo duro y pollo.,5290,2,ensalada_huevo_pollo,Salado; Almuerzo; Promocion
+Ensalada Porotos,Ensalada con porotos verdes y lechuga.,5290,2,ensalada_porotos,Salado; Almuerzo; Promocion
+Ensalada Falafel,Ensalada con lechuga y bolitas de falafels.,5290,2,ensalada_falafel,Salado; Almuerzo; Promocion
