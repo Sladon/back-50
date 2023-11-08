@@ -1,5 +1,5 @@
-from django.shortcuts import render
-from rest_framework.generics import RetrieveAPIView
+from django.shortcuts import render, get_object_or_404
+from rest_framework.generics import RetrieveAPIView, ListAPIView
 from django.http import JsonResponse
 from .models import Producto, Local, Review, Tag
 from rest_framework import generics
@@ -12,6 +12,14 @@ from django.conf import settings
 from django.http import HttpResponse
 from django.views import View
 import os
+
+class ProductosByLocalView(ListAPIView):
+    serializer_class = ProductoSerializer
+
+    def get_queryset(self):
+        local_id = self.kwargs.get('local_id')
+        local = get_object_or_404(Local, pk=local_id)
+        return Producto.objects.filter(local=local)
 
 class ImageView(View):
     def get(self, request, image_path):
