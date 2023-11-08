@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-from rest_framework.generics import RetrieveAPIView, ListAPIView
+from rest_framework.generics import RetrieveAPIView, ListAPIView, CreateAPIView
 from django.http import JsonResponse
 from .models import Producto, Local, Review, Tag
 from rest_framework import generics
@@ -14,6 +14,12 @@ from django.views import View
 import os
 from django.db.models import Avg
 
+
+class CreateReview(CreateAPIView):
+    queryset = Review.objects.all()
+    serializer_class = ReviewSerializer
+
+
 @api_view(['GET']) 
 def get_review_avg(request, producto_id):
 
@@ -27,23 +33,6 @@ def get_review_avg(request, producto_id):
 
     return Response({'producto': producto.nombre, 'avg_rating': avg})
 
-class ReviewRatingByProductView(generics.ListAPIView):
-    serializer_class = ReviewSerializer
-
-    def get_queryset(self):
-        product_id = self.kwargs['product_id']
-        reviews = Review.objects.filter(producto_id=product_id).values()
-
-        rating = 0
-        count = 0
-
-        for i in reviews:
-            rating += i["calificacion"]
-
-        if count > 0:
-            rating = rating / count
-
-        return rating
 
 class ProductosByLocalView(ListAPIView):
     serializer_class = ProductoSerializer
