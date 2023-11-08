@@ -26,3 +26,31 @@ Ensalada Primavera,Ensalada con lechuga mas tomate mas cebolla morada y palta.,5
 Ensalada Huevo Pollo,Ensalada con lechuga mas huevo duro y pollo.,5290,2,ensalada_huevo_pollo,Salado; Almuerzo; Promocion
 Ensalada Porotos,Ensalada con porotos verdes y lechuga.,5290,2,ensalada_porotos,Salado; Almuerzo; Promocion
 Ensalada Falafel,Ensalada con lechuga y bolitas de falafels.,5290,2,ensalada_falafel,Salado; Almuerzo; Promocion
+Fruta Picada,Variacion de fruta picada.,2700,2,fruta_picada,Dulce
+Yogurt Granola,Baso de yogurt con granola y frutas.,2990,2,yogurt_granola,Dulce
+Empanada Nutella,Empanada rellena de nutella y variados de frutas.,2050,2,empanada_nutella,Dulce
+Bebida en Lata,Variacion de bebidas en lata.,990,2,bebida_lata,Bebestible
+Agua Mineral,El agua es una sustancia vital y esencial para la vida en la Tierra. Se trata de un compuesto quimico por dos atomos de hidrogeno y uno de oxigeno.,990,2,agua,Bebestible
+Monster,Bebida energetica no apta para diabeticos.,2200,2,monster,Bebestible
+Plato Variedades + Lata o Agua o Nectar,Almuerzo a eleccion mas una bebida o jugo o agua.,5650,3,almuerzo_promo,Salado; Almuerzo; Promocion
+Gohan Variedades + Lata o Agua o Nectar,Gohan a eleccion mas una bebida o jugo o agua.,5700,3,gohan_promo,Salado; Almuerzo; Promocion
+Ensalada Variedades + Lata o Agua o Nectar,Ensalada a eleccion mas una bebida o jugo o agua.,5650,3,ensalada_promo,Salado; Almuerzo; Promocion
+Gohan Camaron Apanado,Gohan con camaron apanado mas palta y queso crema con salsa a eleccion.,5350,3,gohan_camaron,Salado; Almuerzo; Promocion
+Gohan Pollo Apanado,Gohan con pollo apanado mas palta y queso crema con salsa a eleccion.,5350,3,gohan_pollo,Salado; Almuerzo; Promocion
+Gohan Salmon,Gohan con salmon mas palta y queso crema con salsa a eleccion.,5350,3,gohan_salmon,Salado; Almuerzo; Promocion
+Gohan Pollo Teriyaki,Gohan con pollo teriyaki mas palta y queso crema con salsa a eleccion.,5350,3,gohan_teriyaki,Salado; Almuerzo; Promocion
+Gohan Champiñon,Gohan con champiñon mas palta y queso crema con salsa a eleccion.,5350,3,gohan_champiñon,Salado; Almuerzo; Promocion
+Gohan Mixto,Gohan mixto con camaron mas salmon mas palta y queso crema con salsa a eleccion.,5350,3,gohan_mixto,Salado; Almuerzo; Promocion
+Gohan Atun,Gohan con atun mas palta y queso crema con salsa a eleccion.,5350,3,gohan_atun,Salado; Almuerzo; Promocion
+Ensalada Cesar,Ensalada con lechuga y pollo mas salsa cesar.,5290,3,ensalada_cesar,Salado; Almuerzo; Promocion
+Ensalada Mediterranea,Ensalada con lechuga mas tomate y aceitunas.,5290,3,ensalada_mediterranea,Salado; Almuerzo; Promocion
+Ensalada Primavera,Ensalada con lechuga mas tomate mas cebolla morada y palta.,5290,3,ensalada_primavera,Salado; Almuerzo; Promocion
+Ensalada Huevo Pollo,Ensalada con lechuga mas huevo duro y pollo.,5290,3,ensalada_huevo_pollo,Salado; Almuerzo; Promocion
+Ensalada Porotos,Ensalada con porotos verdes y lechuga.,5290,3,ensalada_porotos,Salado; Almuerzo; Promocion
+Ensalada Falafel,Ensalada con lechuga y bolitas de falafels.,5290,3,ensalada_falafel,Salado; Almuerzo; Promocion
+Fruta Picada,Variacion de fruta picada.,2700,3,fruta_picada,Dulce
+Yogurt Granola,Baso de yogurt con granola y frutas.,2990,3,yogurt_granola,Dulce
+Empanada Nutella,Empanada rellena de nutella y variados de frutas.,2050,3,empanada_nutella,Dulce
+Bebida en Lata,Variacion de bebidas en lata.,990,3,bebida_lata,Bebestible
+Agua Mineral,El agua es una sustancia vital y esencial para la vida en la Tierra. Se trata de un compuesto quimico por dos atomos de hidrogeno y uno de oxigeno.,990,3,agua,Bebestible
+Monster,Bebida energetica no apta para diabeticos.,2200,3,monster,Bebestible

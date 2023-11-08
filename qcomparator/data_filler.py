@@ -61,39 +61,6 @@ def fill_database_with_fake_data():
 
             producto.save()
 
-    # Rellena la tabla Local
-    # for _ in range(num_locales):
-    #     nombre_local = fake.company()
-    #     ubicacion_local = fake.address()
-    #     descripcion_local = fake.text()
-    #     local = Local(nombre=nombre_local, ubicacion=ubicacion_local, descripcion=descripcion_local)
-    #     local.save()
-
-    #     # Rellena la tabla Producto para cada Local
-    #     for _ in range(num_productos_por_local):
-            # nombre_producto = fake.word()
-            # descripcion_producto = fake.text()
-            # precio_producto = round(random.uniform(200, 100000), 2)  # Precio aleatorio entre 1 y 100
-            # producto = Producto(nombre=nombre_producto, descripcion=descripcion_producto, precio=precio_producto, local=local)
-            # producto.save()
-
-            # num_tags = random.randint(1, len(fake_tags))  # Número aleatorio de etiquetas a asignar
-            # tags = fake.random_elements(elements=fake_tags, length=num_tags, unique=True)
-            # for tag_name in tags:
-            #     tag, created = Tag.objects.get_or_create(nombre=tag_name)
-            #     producto.tags.add(tag)  # Agrega la etiqueta al producto
-
-            # producto.save()  # Guarda el producto después de asociar las etiquetas
-
-    #         # Rellena la tabla Review para cada Producto
-    #         for _ in range(num_reviews_per_product):
-    #             user_id = random.randint(1, 10)  # Suponiendo que tienes 10 usuarios en la base de datos
-    #             comentario_review = fake.paragraph()
-    #             calificacion_review = random.randint(1, 5)  # Calificación aleatoria entre 1 y 5
-    #             review = Review(user_id=user_id, producto=producto, comentario=comentario_review, calificacion=calificacion_review)
-    #             review.save()
-
-
 if __name__ == "__main__":
     create_fake_users()
     fill_database_with_fake_data()
