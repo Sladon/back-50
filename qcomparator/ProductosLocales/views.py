@@ -91,3 +91,21 @@ class LocalDetailsView(RetrieveAPIView):
         instance = self.get_object()  # Obtiene la instancia del local
         serializer = self.get_serializer(instance)
         return Response(serializer.data)
+    
+class ReviewRatingByProductView(generics.ListAPIView):
+    serializer_class = ReviewSerializer
+
+    def get_queryset(self):
+        product_id = self.kwargs['product_id']
+        reviews = Review.objects.filter(producto_id=product_id).values()
+
+        rating = 0
+        count = 0
+
+        for i in reviews:
+            rating += i["calificacion"]
+
+        if count > 0:
+            rating = rating / count
+
+        return rating
