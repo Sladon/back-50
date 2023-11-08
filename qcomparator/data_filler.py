@@ -50,10 +50,11 @@ def fill_database_with_fake_data():
             precio_producto = float(data[2])
             local_id = int(data[3])
             local = Local.objects.get(id = local_id)
-            producto = Producto(nombre=nombre_producto, descripcion=descripcion_producto, precio=precio_producto, local=local)
+            image = "media/" + data[4]
+            producto = Producto(nombre=nombre_producto, descripcion=descripcion_producto, precio=precio_producto, local=local, imagen=image)
             producto.save()
 
-            tags = data[4].split(",")
+            tags = data[5].split(";")
             for tag_name in tags:
                 tag, created = Tag.objects.get_or_create(nombre=tag_name) # If tag is found, then its returned. Else, it creates a new tag and returns the new created one
                 producto.tags.add(tag)
