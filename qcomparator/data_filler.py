@@ -35,12 +35,13 @@ def create_fake_reviews(num_reviews=50):
 
         randRating = random.randint(0, 5)
 
-        user = User.objects.get(id = randUser)
-        producto = Producto.objects.get(id = productId)
-        comentario = fake.paragraph(nb_sentences = ranSentence, variable_nb_sentences = True)
+        users = User.objects.get(id = randUser)
+        productos = Producto.objects.get(id = productId)
+        comentarios = fake.paragraph(nb_sentences = ranSentence, variable_nb_sentences = True)
         rating = randRating
 
-        review = Review(user = user, producto = producto, comentario = comentario, calificacion = rating)
+        review = Review(user = users, producto = productos, comentario = comentarios, calificacion = rating)
+        print(review)
         review.save()        
 
 # Función para rellenar la base de datos con datos falsos
