@@ -30,8 +30,9 @@ def get_review_avg(request, producto_id):
     
     avg_rating = Review.objects.filter(producto=producto).aggregate(avg_rating=Avg('calificacion'))
     avg = avg_rating['avg_rating']
+    count = Review.objects.filter(producto=producto).count()
 
-    return Response({'producto': producto.nombre, 'avg_rating': avg})
+    return Response({'producto': producto.nombre, 'avg_rating': avg, 'count': count})
 
 
 class ProductosByLocalView(ListAPIView):
