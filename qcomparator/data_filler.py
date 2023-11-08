@@ -23,6 +23,26 @@ def create_fake_users(num_users=10):
         password = fake.password()  # O puedes usar una contraseña fija
         user = User.objects.create_user(username=username, email=email, password=password)
 
+def create_fake_reviews(num_reviews=50):
+    fake = Faker()
+    for _ in range(num_reviews):
+
+        randUser = random.randint(1, 10)
+        productCount = Producto.objects.count()
+        productId = random.randint(1, productCount)
+
+        ranSentence = random.randint(1, 3)
+
+        randRating = random.randint(0, 5)
+
+        user = User.objects.get(id = randUser)
+        producto = Producto.objects.get(id = productId)
+        comentario = fake.paragraph(nb_sentences = ranSentence, variable_nb_sentences = True)
+        rating = randRating
+
+        review = Review(user = user, producto = producto, comentario = comentario, calificacion = rating)
+        review.save()        
+
 # Función para rellenar la base de datos con datos falsos
 def fill_database_with_fake_data():
 
@@ -64,5 +84,6 @@ def fill_database_with_fake_data():
 if __name__ == "__main__":
     create_fake_users()
     fill_database_with_fake_data()
+    create_fake_reviews()
     print("ready faker")
 
