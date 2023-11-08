@@ -12,6 +12,38 @@ from django.conf import settings
 from django.http import HttpResponse
 from django.views import View
 import os
+from django.db.models import Avg
+
+@api_view(['GET']) 
+def get_review_avg(request, producto_id):
+
+    try:
+        producto = Producto.objects.get(id=producto_id)
+    except Producto.DoesNotExist:
+        return Response({'error': 'Producto no encontrado'}, status=404)
+    
+    avg_rating = Review.objects.filter(producto=producto).aggregate(avg_rating=Avg('calificacion'))
+    avg = avg_rating['avg_rating']
+
+    return Response({'producto': producto.nombre, 'avg_rating': avg})
+
+class ReviewRatingByProductView(generics.ListAPIView):
+    serializer_class = ReviewSerializer
+
+    def get_queryset(self):
+        product_id = self.kwargs['product_id']
+        reviews = Review.objects.filter(producto_id=product_id).values()
+
+        rating = 0
+        count = 0
+
+        for i in reviews:
+            rating += i["calificacion"]
+
+        if count > 0:
+            rating = rating / count
+
+        return rating
 
 class ProductosByLocalView(ListAPIView):
     serializer_class = ProductoSerializer
@@ -92,20 +124,3 @@ class LocalDetailsView(RetrieveAPIView):
         serializer = self.get_serializer(instance)
         return Response(serializer.data)
     
-class ReviewRatingByProductView(generics.ListAPIView):
-    serializer_class = ReviewSerializer
-
-    def get_queryset(self):
-        product_id = self.kwargs['product_id']
-        reviews = Review.objects.filter(producto_id=product_id).values()
-
-        rating = 0
-        count = 0
-
-        for i in reviews:
-            rating += i["calificacion"]
-
-        if count > 0:
-            rating = rating / count
-
-        return rating
