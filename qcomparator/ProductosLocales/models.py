@@ -35,3 +35,14 @@ class Tag(models.Model):
     
     def __str__(self):
         return self.nombre
+    
+
+class EditProducto(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)  # Vincula la revisión a un usuario
+    producto = models.ForeignKey(Producto, on_delete=models.CASCADE)  # Vincula la revisión a un producto
+    precio = models.DecimalField(max_digits=10, decimal_places=2)
+    
+    
+class DeleteProducto(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)  # Vincula la revisión a un usuario
+    producto = models.ForeignKey(Producto, on_delete=models.CASCADE)  # Vincula la revisión a un producto
