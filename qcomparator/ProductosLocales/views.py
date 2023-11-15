@@ -16,7 +16,7 @@ from django.contrib.auth import login, authenticate, logout, get_user_model
 from django.views.decorators.csrf import csrf_exempt
 import json
 from django.contrib.auth.forms import UserCreationForm
-
+from .forms import CustomUserCreationForm
 
 
 
@@ -77,11 +77,12 @@ def logout_view(request):
     logout(request)
     return JsonResponse({'message': 'Logout successful'})
 
+
 @csrf_exempt
 def register_view(request):
     if request.method == 'POST':
         data = json.loads(request.body)
-        form = UserCreationForm(data)
+        form = CustomUserCreationForm(data)
 
         if form.is_valid():
             user = form.save()
