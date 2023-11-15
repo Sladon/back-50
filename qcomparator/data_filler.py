@@ -55,7 +55,7 @@ def create_fake_users(num_users=10):
 
     CustomUser.objects.bulk_create(users)
 
-def create_fake_reviews(num_reviews=50):
+def create_fake_reviews(num_reviews=100):
     fake = Faker()
     reviews = []
     for _ in range(num_reviews):
@@ -70,6 +70,7 @@ def create_fake_reviews(num_reviews=50):
         rating = rand_rating
 
         review = Review(user=user, producto=producto, comentario=comentario, calificacion=rating)
+        review.save()
         reviews.append(review)  
 
 # Función para rellenar la base de datos con datos falsos
