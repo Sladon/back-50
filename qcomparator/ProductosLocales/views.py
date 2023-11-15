@@ -16,6 +16,7 @@ from django.db.models import Avg
 from django.contrib.auth import login, authenticate, logout
 from django.views.decorators.csrf import csrf_exempt
 import json
+from django.contrib.auth.forms import UserCreationForm
 
 @csrf_exempt
 def login_view(request):
@@ -36,7 +37,18 @@ def logout_view(request):
     logout(request)
     return JsonResponse({'message': 'Logout successful'})
 
-# Similarmente, puedes crear una vista para el registro
+@csrf_exempt
+def register_view(request):
+    if request.method == 'POST':
+        data = json.loads(request.body)
+        form = UserCreationForm(data)
+
+        if form.is_valid():
+            user = form.save()
+            return JsonResponse({'message': 'Registration successful'})
+        else:
+            return JsonResponse({'message': 'Invalid registration data'}, status=400)
+
 
 
 
