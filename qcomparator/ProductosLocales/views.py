@@ -28,7 +28,15 @@ def login_view(request):
 
         if user is not None:
             login(request, user)
-            return JsonResponse({'message': 'Login successful'})
+            # Devolver todos los datos del usuario
+            user_data = {
+                'id': user.id,
+                'username': user.username,
+                'email': user.email,
+                'rol': user.rol,
+                # Agrega más campos según tus necesidades
+            }
+            return JsonResponse({'user': user_data})
         else:
             return JsonResponse({'message': 'Invalid credentials'}, status=401)
 
