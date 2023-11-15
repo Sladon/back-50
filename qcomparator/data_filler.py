@@ -13,9 +13,17 @@ django.setup()
 
 from ProductosLocales.models import Local, Producto, Review, Tag, CustomUser
 
+    
+
 def create_fake_users(num_users=10):
     fake = Faker()
     users = []
+    username = "roberto"
+    email = "roberto@miuandes.cl"
+    password = "hola123"
+    user = CustomUser(username=username, email=email)
+    user.set_password(password)
+    users.append(user)
     for _ in range(num_users):
         username = fake.user_name()
         email = fake.email()
