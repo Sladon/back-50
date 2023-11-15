@@ -1,6 +1,14 @@
 from django.db import models
-from django.contrib.auth.models import User
+# from django.contrib.auth.models import User
 from django.core.validators import MinValueValidator, MaxValueValidator
+from django.contrib.auth.models import AbstractUser
+
+
+class CustomUser(AbstractUser):
+    # Agrega campos personalizados si es necesario
+    def __str__(self):
+        return self.username
+
 
 class Local(models.Model):
     nombre = models.CharField(max_length=100)
@@ -20,7 +28,7 @@ class Producto(models.Model):
         return self.local.nombre
     
 class Review(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)  # Vincula la revisión a un usuario
+    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)    
     producto = models.ForeignKey(Producto, on_delete=models.CASCADE)  # Vincula la revisión a un producto
     comentario = models.TextField()
     calificacion = models.PositiveIntegerField(default=0, validators=[MinValueValidator(0), MaxValueValidator(5)])
@@ -37,12 +45,12 @@ class Tag(models.Model):
         return self.nombre
     
 
-class EditProducto(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)  # Vincula la revisión a un usuario
-    producto = models.ForeignKey(Producto, on_delete=models.CASCADE)  # Vincula la revisión a un producto
-    precio = models.DecimalField(max_digits=10, decimal_places=2)
+# class EditProducto(models.Model):
+#     user = models.ForeignKey(AbstractUser, on_delete=models.CASCADE)  # Vincula la revisión a un usuario
+#     producto = models.ForeignKey(Producto, on_delete=models.CASCADE)  # Vincula la revisión a un producto
+#     precio = models.DecimalField(max_digits=10, decimal_places=2)
     
     
-class DeleteProducto(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)  # Vincula la revisión a un usuario
-    producto = models.ForeignKey(Producto, on_delete=models.CASCADE)  # Vincula la revisión a un producto
+# class DeleteProducto(models.Model):
+#     user = models.ForeignKey(AbstractUser, on_delete=models.CASCADE)  # Vincula la revisión a un usuario
+#     producto = models.ForeignKey(Producto, on_delete=models.CASCADE)  # Vincula la revisión a un producto

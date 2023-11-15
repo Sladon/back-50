@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from rest_framework.generics import RetrieveAPIView, ListAPIView, CreateAPIView
 from django.http import JsonResponse
-from .models import Producto, Local, Review, Tag
+from .models import Producto, Local, Review, Tag, CustomUser
 from rest_framework import generics
 from .serializers import ProductoSerializer, LocalSerializer, ReviewSerializer
 from rest_framework.decorators import api_view
@@ -13,6 +13,31 @@ from django.http import HttpResponse
 from django.views import View
 import os
 from django.db.models import Avg
+from django.contrib.auth import login, authenticate, logout
+from django.views.decorators.csrf import csrf_exempt
+import json
+
+@csrf_exempt
+def login_view(request):
+    if request.method == 'POST':
+        data = json.loads(request.body)
+        username = data['username']
+        password = data['password']
+        user = authenticate(request, username=username, password=password)
+
+        if user is not None:
+            login(request, user)
+            return JsonResponse({'message': 'Login successful'})
+        else:
+            return JsonResponse({'message': 'Invalid credentials'}, status=401)
+
+@csrf_exempt
+def logout_view(request):
+    logout(request)
+    return JsonResponse({'message': 'Logout successful'})
+
+# Similarmente, puedes crear una vista para el registro
+
 
 
 class CreateReview(CreateAPIView):

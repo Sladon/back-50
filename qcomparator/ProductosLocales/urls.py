@@ -15,5 +15,6 @@ urlpatterns = [
     path('api/locales/<int:local_id>/productos/', views.ProductosByLocalView.as_view(), name='productos-by-local'),
     path('api/productos/<int:producto_id>/reviews/avg/', views.get_review_avg, name='get_review_avg'),
     path('api/reviews/create/', views.CreateReview.as_view(), name='create-review'),
-    
+    path('login/', views.login_view, name='login'),
+    path('logout/', views.logout_view, name='logout'),
 ]

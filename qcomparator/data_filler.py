@@ -11,38 +11,37 @@ os.environ.setdefault("DJANGO_SETTINGS_MODULE", "qcomparator.settings")
 # Inicializar Django
 django.setup()
 
-# Ahora puedes importar tus modelos
-from ProductosLocales.models import Local, Producto, Review, Tag
-from django.contrib.auth.models import User  # Importa el modelo User
+from ProductosLocales.models import Local, Producto, Review, Tag, CustomUser
 
 def create_fake_users(num_users=10):
     fake = Faker()
+    users = []
     for _ in range(num_users):
         username = fake.user_name()
         email = fake.email()
-        password = fake.password()  # O puedes usar una contraseña fija
-        user = User.objects.create_user(username=username, email=email, password=password)
+        password = "hola123"
+        user = CustomUser(username=username, email=email)
+        user.set_password(password)
+        users.append(user)
+
+    CustomUser.objects.bulk_create(users)
 
 def create_fake_reviews(num_reviews=50):
     fake = Faker()
+    reviews = []
     for _ in range(num_reviews):
+        rand_user = random.randint(1, 10)
+        rand_product_id = random.randint(1, Producto.objects.count())
+        ran_sentence = random.randint(1, 3)
+        rand_rating = random.randint(0, 5)
 
-        randUser = random.randint(1, 10)
-        productCount = Producto.objects.count()
-        productId = random.randint(1, productCount)
+        user = CustomUser.objects.get(id=rand_user)
+        producto = Producto.objects.get(id=rand_product_id)
+        comentario = fake.paragraph(nb_sentences=ran_sentence, variable_nb_sentences=True)
+        rating = rand_rating
 
-        ranSentence = random.randint(1, 3)
-
-        randRating = random.randint(0, 5)
-
-        users = User.objects.get(id = randUser)
-        productos = Producto.objects.get(id = productId)
-        comentarios = fake.paragraph(nb_sentences = ranSentence, variable_nb_sentences = True)
-        rating = randRating
-
-        review = Review(user = users, producto = productos, comentario = comentarios, calificacion = rating)
-        print(review)
-        review.save()        
+        review = Review(user=user, producto=producto, comentario=comentario, calificacion=rating)
+        reviews.append(review)  
 
 # Función para rellenar la base de datos con datos falsos
 def fill_database_with_fake_data():
