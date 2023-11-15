@@ -5,7 +5,7 @@ from django.contrib.auth.models import AbstractUser
 
 
 class CustomUser(AbstractUser):
-    email = models.EmailField(unique=True)
+    email = models.EmailField()
     rol = models.CharField(max_length=100, default="client")
     # Agrega campos personalizados si es necesario
     def __str__(self):

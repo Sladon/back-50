@@ -13,10 +13,25 @@ from django.http import HttpResponse
 from django.views import View
 import os
 from django.db.models import Avg
-from django.contrib.auth import login, authenticate, logout
+from django.contrib.auth import login, authenticate, logout, get_user_model
 from django.views.decorators.csrf import csrf_exempt
 import json
 from django.contrib.auth.forms import UserCreationForm
+
+
+def get_user_details(request, user_id):
+    try:
+        user = get_user_model().objects.get(id=user_id)
+        user_data = {
+            'id': user.id,
+            'username': user.username,
+            'email': user.email,
+            'rol': user.rol,
+            # Agrega más campos según tus necesidades
+        }
+        return JsonResponse({'user': user_data})
+    except get_user_model().DoesNotExist:
+        return JsonResponse({'message': 'User not found'}, status=404)
 
 @csrf_exempt
 def login_view(request):
