@@ -19,4 +19,6 @@ urlpatterns = [
     path('api/logout/', views.logout_view, name='logout'),
     path('api/register/', views.register_view, name='register'),
     path('api/user/<int:user_id>/', views.get_user_details, name='get_user_details'),
+    path('api/editproducto/', views.EditProductoCreateView.as_view(), name='editproducto-create'),
+    # path('api/producto/', views.ProductoListView.as_view(), name='producto-list'), # Ruta para obtener todos los productos pero pensado para edit productos
 ]

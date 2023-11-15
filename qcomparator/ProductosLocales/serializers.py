@@ -1,5 +1,15 @@
 from rest_framework import serializers
-from .models import Producto, Local, Review, Tag
+from .models import Producto, Local, Review, Tag, EditProducto
+
+
+class EditProductoSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = EditProducto
+        fields = '__all__'
+
+# class ProductoListView(generics.ListAPIView):
+#     queryset = Producto.objects.all()
+#     serializer_class = ProductoSerializer
 
 class TagSerializer(serializers.ModelSerializer):
     class Meta:
@@ -10,6 +20,7 @@ class ReviewSerializer(serializers.ModelSerializer):
     class Meta:
         model = Review
         fields = '__all__'
+
         
 class ProductoSerializer(serializers.ModelSerializer):
     # Agregar un campo solo de lectura para mostrar el nombre del local

@@ -1,13 +1,12 @@
 from django.shortcuts import render, get_object_or_404
+from rest_framework import generics, status
 from rest_framework.generics import RetrieveAPIView, ListAPIView, CreateAPIView
 from django.http import JsonResponse
-from .models import Producto, Local, Review, Tag, CustomUser
-from rest_framework import generics
-from .serializers import ProductoSerializer, LocalSerializer, ReviewSerializer
+from .models import Producto, Local, Review, Tag, CustomUser, EditProducto
+from .serializers import ProductoSerializer, LocalSerializer, ReviewSerializer, EditProductoSerializer, ProductoSerializer
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from rest_framework import status
 from django.conf import settings
 from django.http import HttpResponse
 from django.views import View
@@ -17,6 +16,24 @@ from django.contrib.auth import login, authenticate, logout, get_user_model
 from django.views.decorators.csrf import csrf_exempt
 import json
 from django.contrib.auth.forms import UserCreationForm
+
+
+
+
+class EditProductoCreateView(generics.CreateAPIView):
+    queryset = EditProducto.objects.all()
+    serializer_class = EditProductoSerializer
+
+    def perform_create(self, serializer):
+        # Llama al método save personalizado del modelo para manejar la lógica de actualización del producto
+        instance = serializer.save()
+        instance.save_product_price()
+
+        return instance
+
+# class ProductoListView(generics.ListAPIView): # Ruta para obtener todos los productos pero pensado para edit productos
+#     queryset = Producto.objects.all()
+#     serializer_class = ProductoSerializer
 
 
 def get_user_details(request, user_id):
