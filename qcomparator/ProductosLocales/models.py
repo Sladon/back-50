@@ -2,6 +2,8 @@ from django.db import models
 # from django.contrib.auth.models import User
 from django.core.validators import MinValueValidator, MaxValueValidator
 from django.contrib.auth.models import AbstractUser
+from django.db.models import Count
+
 
 
 class CustomUser(AbstractUser):
@@ -47,10 +49,22 @@ class Tag(models.Model):
         return self.nombre
     
 
-# class EditProducto(models.Model):
-#     user = models.ForeignKey(AbstractUser, on_delete=models.CASCADE)  # Vincula la revisión a un usuario
-#     producto = models.ForeignKey(Producto, on_delete=models.CASCADE)  # Vincula la revisión a un producto
-#     precio = models.DecimalField(max_digits=10, decimal_places=2)
+class EditProducto(models.Model):
+    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+    producto = models.ForeignKey(Producto, on_delete=models.CASCADE)
+    precio = models.DecimalField(max_digits=10, decimal_places=2)
+
+    def save_product_price(self):
+        same_price_requests = EditProducto.objects.filter(producto=self.producto, precio=self.precio)
+        
+        if same_price_requests.count() >= 5:
+            self.producto.precio = self.precio
+            self.producto.save()
+
+    def save(self, *args, **kwargs):
+        self.save_product_price()
+        super().save(*args, **kwargs)
+
     
     
 # class DeleteProducto(models.Model):
