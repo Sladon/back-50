@@ -21,14 +21,81 @@ def create_fake_users(num_users=10):
     username = "roberto"
     email = "roberto@miuandes.cl"
     password = "hola123"
-    user = CustomUser(username=username, email=email)
+    rol = "admin"
+    user = CustomUser(username=username, email=email, rol=rol)
     user.set_password(password)
     users.append(user)
+
+    username = "roberto2"
+    email = "roberto3@miuandes.cl"
+    password = "hola123"
+    rol = "client"
+    user = CustomUser(username=username, email=email, rol=rol)
+    user.set_password(password)
+    users.append(user)
+
+    username = "roberto3"
+    email = "roberto3@miuandes.cl"
+    password = "hola123"
+    rol = "client"
+    user = CustomUser(username=username, email=email, rol=rol)
+    user.set_password(password)
+    users.append(user)
+
+    username = "roberto4"
+    email = "roberto4@miuandes.cl"
+    password = "hola123"
+    rol = "client"
+    user = CustomUser(username=username, email=email, rol=rol)
+    user.set_password(password)
+    users.append(user)
+
+    username = "roberto5"
+    email = "roberto5@miuandes.cl"
+    password = "hola123"
+    rol = "client"
+    user = CustomUser(username=username, email=email, rol=rol)
+    user.set_password(password)
+    users.append(user)
+
+    username = "roberto6"
+    email = "roberto6@miuandes.cl"
+    password = "hola123"
+    rol = "client"
+    user = CustomUser(username=username, email=email, rol=rol)
+    user.set_password(password)
+    users.append(user)
+
+    username = "roberto7"
+    email = "roberto7@miuandes.cl"
+    password = "hola123"
+    rol = "client"
+    user = CustomUser(username=username, email=email, rol=rol)
+    user.set_password(password)
+    users.append(user)
+
+    username = "roberto8"
+    email = "roberto8@miuandes.cl"
+    password = "hola123"
+    rol = "client"
+    user = CustomUser(username=username, email=email, rol=rol)
+    user.set_password(password)
+    users.append(user)
+
+    username = "roberto9"
+    email = "roberto9@miuandes.cl"
+    password = "hola123"
+    rol = "client"
+    user = CustomUser(username=username, email=email, rol=rol)
+    user.set_password(password)
+    users.append(user)
+
     for _ in range(num_users):
         username = fake.user_name()
         email = fake.email()
         password = "hola123"
-        user = CustomUser(username=username, email=email)
+        rol = "client"
+        user = CustomUser(username=username, email=email, rol=rol)
         user.set_password(password)
         users.append(user)
 
