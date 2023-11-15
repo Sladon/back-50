@@ -21,14 +21,17 @@ def create_fake_users(num_users=10):
     username = "roberto"
     email = "roberto@miuandes.cl"
     password = "hola123"
-    user = CustomUser(username=username, email=email)
+    rol = "client"
+    user = CustomUser(username=username, email=email, rol=rol)
     user.set_password(password)
     users.append(user)
+
     for _ in range(num_users):
         username = fake.user_name()
         email = fake.email()
         password = "hola123"
-        user = CustomUser(username=username, email=email)
+        rol = "client"
+        user = CustomUser(username=username, email=email, rol=rol)
         user.set_password(password)
         users.append(user)
 
