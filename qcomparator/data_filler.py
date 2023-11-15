@@ -18,6 +18,8 @@ from ProductosLocales.models import Local, Producto, Review, Tag, CustomUser
 def create_fake_users(num_users=10):
     fake = Faker()
     users = []
+
+    # Admin user
     username = "roberto"
     email = "roberto@miuandes.cl"
     password = "hola123"
@@ -26,75 +28,27 @@ def create_fake_users(num_users=10):
     user.set_password(password)
     users.append(user)
 
-    username = "roberto2"
-    email = "roberto3@miuandes.cl"
-    password = "hola123"
-    rol = "client"
-    user = CustomUser(username=username, email=email, rol=rol)
-    user.set_password(password)
-    users.append(user)
+    # Other users
+    for i in range(2, 10):
+        username = f"roberto{i}"
+        email = f"roberto{i}@miuandes.cl"
+        password = "hola123"
+        rol = "client"
+        user = CustomUser(username=username, email=email, rol=rol)
+        user.set_password(password)
+        users.append(user)
 
-    username = "roberto3"
-    email = "roberto3@miuandes.cl"
-    password = "hola123"
-    rol = "client"
-    user = CustomUser(username=username, email=email, rol=rol)
-    user.set_password(password)
-    users.append(user)
-
-    username = "roberto4"
-    email = "roberto4@miuandes.cl"
-    password = "hola123"
-    rol = "client"
-    user = CustomUser(username=username, email=email, rol=rol)
-    user.set_password(password)
-    users.append(user)
-
-    username = "roberto5"
-    email = "roberto5@miuandes.cl"
-    password = "hola123"
-    rol = "client"
-    user = CustomUser(username=username, email=email, rol=rol)
-    user.set_password(password)
-    users.append(user)
-
-    username = "roberto6"
-    email = "roberto6@miuandes.cl"
-    password = "hola123"
-    rol = "client"
-    user = CustomUser(username=username, email=email, rol=rol)
-    user.set_password(password)
-    users.append(user)
-
-    username = "roberto7"
-    email = "roberto7@miuandes.cl"
-    password = "hola123"
-    rol = "client"
-    user = CustomUser(username=username, email=email, rol=rol)
-    user.set_password(password)
-    users.append(user)
-
-    username = "roberto8"
-    email = "roberto8@miuandes.cl"
-    password = "hola123"
-    rol = "client"
-    user = CustomUser(username=username, email=email, rol=rol)
-    user.set_password(password)
-    users.append(user)
-
-    username = "roberto9"
-    email = "roberto9@miuandes.cl"
-    password = "hola123"
-    rol = "client"
-    user = CustomUser(username=username, email=email, rol=rol)
-    user.set_password(password)
-    users.append(user)
-
+    # Fake users
     for _ in range(num_users):
         username = fake.user_name()
         email = fake.email()
         password = "hola123"
         rol = "client"
+        
+        # Ensure unique email addresses
+        while CustomUser.objects.filter(email=email).exists():
+            email = fake.email()
+
         user = CustomUser(username=username, email=email, rol=rol)
         user.set_password(password)
         users.append(user)
