@@ -88,9 +88,12 @@ def register_view(request):
             user = form.save()
             return JsonResponse({'message': 'Registration successful'})
         else:
-            return JsonResponse({'message': 'Invalid registration data'}, status=400)
-
-
+            # Imprime los errores en la consola de Django
+            print(form.errors)
+            
+            # Devuelve mensajes de error específicos en la respuesta JSON
+            errors = dict(form.errors.items())
+            return JsonResponse({'message': 'Invalid registration data', 'errors': errors}, status=400)
 
 
 class CreateReview(CreateAPIView):
