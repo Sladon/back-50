@@ -17,9 +17,10 @@ class TagSerializer(serializers.ModelSerializer):
         fields = ('id', 'nombre')  # Incluye 'nombre' en los campos a serializar
 
 class ReviewSerializer(serializers.ModelSerializer):
+    username = serializers.ReadOnlyField(source='user.username')
     class Meta:
         model = Review
-        fields = '__all__'
+        fields = ['id', 'user', 'username', 'producto', 'comentario', 'calificacion', 'fecha_creacion']
 
         
 class ProductoSerializer(serializers.ModelSerializer):
