@@ -61,6 +61,8 @@ class EditProducto(models.Model):
             self.producto.precio = self.precio
             self.producto.save()
 
+            same_price_requests.delete()
+
     def save(self, *args, **kwargs):
         self.save_product_price()
         super().save(*args, **kwargs)

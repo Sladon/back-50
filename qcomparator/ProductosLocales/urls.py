@@ -1,5 +1,6 @@
 from django.urls import path, re_path
 from . import views
+from rest_framework.authtoken.views import obtain_auth_token
 
 urlpatterns = [
     # Define tus rutas aquí
@@ -20,5 +21,7 @@ urlpatterns = [
     path('api/register/', views.register_view, name='register'),
     path('api/user/<int:user_id>/', views.get_user_details, name='get_user_details'),
     path('api/editproducto/', views.EditProductoCreateView.as_view(), name='editproducto-create'),
+    path('api/productos/<int:producto_id>/verificar-ediciones/', views.VerificarEdiciones.as_view(), name='verificar-ediciones'),
+    path('api/token/', obtain_auth_token, name='obtain-token'),
     # path('api/producto/', views.ProductoListView.as_view(), name='producto-list'), # Ruta para obtener todos los productos pero pensado para edit productos
 ]
