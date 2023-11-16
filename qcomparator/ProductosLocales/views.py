@@ -50,6 +50,29 @@ def get_user_details(request, user_id):
     except get_user_model().DoesNotExist:
         return JsonResponse({'message': 'User not found'}, status=404)
 
+# @csrf_exempt
+# def login_view(request):
+#     if request.method == 'POST':
+#         data = json.loads(request.body)
+#         username = data['username']
+#         password = data['password']
+#         user = authenticate(request, username=username, password=password)
+
+#         if user is not None:
+#             login(request, user)
+#             # Devolver todos los datos del usuario
+#             user_data = {
+#                 'id': user.id,
+#                 'username': user.username,
+#                 'email': user.email,
+#                 'rol': user.rol,
+#                 # Agrega más campos según tus necesidades
+#             }
+#             return JsonResponse({'user': user_data})
+#         else:
+#             return JsonResponse({'message': 'Invalid credentials'}, status=401)
+        
+
 @csrf_exempt
 def login_view(request):
     if request.method == 'POST':
@@ -60,7 +83,7 @@ def login_view(request):
 
         if user is not None:
             login(request, user)
-            # Devolver todos los datos del usuario
+
             user_data = {
                 'id': user.id,
                 'username': user.username,
@@ -68,9 +91,12 @@ def login_view(request):
                 'rol': user.rol,
                 # Agrega más campos según tus necesidades
             }
+
             return JsonResponse({'user': user_data})
         else:
-            return JsonResponse({'message': 'Invalid credentials'}, status=401)
+            # Devuelve mensajes de error específicos en la respuesta JSON
+            errors = {'non_field_errors': ['Invalid credentials']}
+            return JsonResponse({'message': 'Invalid credentials', 'errors': errors}, status=401)
 
 @csrf_exempt
 def logout_view(request):
