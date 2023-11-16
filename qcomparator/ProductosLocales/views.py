@@ -19,6 +19,24 @@ from django.contrib.auth.forms import UserCreationForm
 from .forms import CustomUserCreationForm
 
 
+class VerificarEdiciones(APIView):
+    def get(self, request, producto_id):
+        # Obtener el producto o devolver 404 si no existe
+        producto = get_object_or_404(Producto, pk=producto_id)
+
+        # Verificar si hay solicitudes de edición para este producto
+        tiene_ediciones = EditProducto.objects.filter(producto=producto_id).exists()
+
+        # Serializar el producto
+        serializer = ProductoSerializer(producto)
+
+        # Devolver una respuesta indicando si tiene o no solicitudes de edición
+        response_data = {
+            'producto': serializer.data,
+            'tiene_ediciones': tiene_ediciones,
+        }
+
+        return Response(response_data, status=status.HTTP_200_OK)
 
 class EditProductoCreateView(generics.CreateAPIView):
     queryset = EditProducto.objects.all()
